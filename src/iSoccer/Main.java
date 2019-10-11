@@ -19,8 +19,8 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		int numeroFuncionario = 1;
-		int i = 100, j = 7;
+		int numeroFuncionario = 1, situacaoJogador;
+		int i = 100, j = 9;
 		
 		String[][] pessoa = new String[i][j];
 		
@@ -76,33 +76,35 @@ public class Main {
 					System.out.println("8 - Jogador");
 					
 					opcaoFuncionario = input.nextInt();
+					input.nextLine();
 					
 					
 					if(opcaoFuncionario == 1) {
 				
 						pessoa[numeroFuncionario][1] = "Presidente";
 						
-						System.out.println("Digite o nome completo do funcionário");
+						System.out.println("Digite o nome completo do Presidente");
 						
 						pessoa[numeroFuncionario][2] = input.nextLine();
 						
-						System.out.println("Digite o email do funcionário");
+						System.out.println("Digite o email do Presidente");
 						
 						pessoa[numeroFuncionario][3] = input.nextLine();
 						
-						System.out.println("Digite o CPF do funcionário");
+						System.out.println("Digite o CPF do Presidente");
 						
 						pessoa[numeroFuncionario][4] = input.nextLine();
 						
-						System.out.println("Digite o salário do funcionário");
+						System.out.println("Digite o salário do Presidente");
 						
 						pessoa[numeroFuncionario][5] = input.nextLine();
 						
-						System.out.println("Digite o telefone do funcionário");
+						System.out.println("Digite o telefone do Presidente");
 						
 						pessoa[numeroFuncionario][6] = input.nextLine();
 						
 						
+						System.out.println("\n\nPresidente adicionado com sucesso! \n\n");
 						
 						
 					}
@@ -110,17 +112,87 @@ public class Main {
 						
 						pessoa[numeroFuncionario][1] = "Médico";
 						
+						System.out.println("Digite o nome completo do Médico");
+						
+						pessoa[numeroFuncionario][2] = input.nextLine();
+						
+						System.out.println("Digite o email do Médico");
+						
+						pessoa[numeroFuncionario][3] = input.nextLine();
+						
+						System.out.println("Digite o CPF do Médico");
+						
+						pessoa[numeroFuncionario][4] = input.nextLine();
+						
+						System.out.println("Digite o CRM do Médico");
+						
+						pessoa[numeroFuncionario][5] = input.nextLine();
+						
+						System.out.println("Digite o salário do Médico");
+						
+						pessoa[numeroFuncionario][6] = input.nextLine();
+						
+						System.out.println("Digite o telefone do Médico");
+						
+						pessoa[numeroFuncionario][7] = input.nextLine();
+						
+						
+						System.out.println("\n\nMédico adicionado com sucesso! \n\n");
 						
 					}
 					else if(opcaoFuncionario == 3) {
 						
 						pessoa[numeroFuncionario][1] = "Técnico";
 						
+						System.out.println("Digite o nome completo do Técnico");
+						
+						pessoa[numeroFuncionario][2] = input.nextLine();
+						
+						System.out.println("Digite o email do Técnico");
+						
+						pessoa[numeroFuncionario][3] = input.nextLine();
+						
+						System.out.println("Digite o CPF do Técnico");
+						
+						pessoa[numeroFuncionario][4] = input.nextLine();
+						
+						System.out.println("Digite o salário do Técnico");
+						
+						pessoa[numeroFuncionario][5] = input.nextLine();
+						
+						System.out.println("Digite o telefone do Médico");
+						
+						pessoa[numeroFuncionario][6] = input.nextLine();
+						
+						System.out.println("\n\nTécnico adicionado com sucesso! \n\n");
 										
 					}
 					else if(opcaoFuncionario == 4) {
 						
 						pessoa[numeroFuncionario][1] = "Preparador físico";
+						
+						System.out.println("Digite o nome completo do Preparador Físico");
+						
+						pessoa[numeroFuncionario][2] = input.nextLine();
+						
+						System.out.println("Digite o email do Preparador Físico");
+						
+						pessoa[numeroFuncionario][3] = input.nextLine();
+						
+						System.out.println("Digite o CPF do Preparador Físico");
+						
+						pessoa[numeroFuncionario][4] = input.nextLine();
+						
+						System.out.println("Digite o salário do Técnico");
+						
+						pessoa[numeroFuncionario][5] = input.nextLine();
+						
+						System.out.println("Digite o telefone do Preparador Físico");
+						
+						pessoa[numeroFuncionario][6] = input.nextLine();
+						
+						System.out.println("\n\nPreparador físico adicionado com sucesso! \n\n");
+								
 						
 				
 					}
@@ -128,11 +200,63 @@ public class Main {
 						
 						pessoa[numeroFuncionario][1] = "Motorista";
 						
+						System.out.println("Digite o nome completo do Motorista");
+						
+						pessoa[numeroFuncionario][2] = input.nextLine();
+						
+						System.out.println("Digite o email do Motorista");
+						
+						pessoa[numeroFuncionario][3] = input.nextLine();
+						
+						System.out.println("Digite o CPF do Motorista");
+						
+						pessoa[numeroFuncionario][4] = input.nextLine();
+						
+						System.out.println("Digite o salário do Motorista");
+						
+						pessoa[numeroFuncionario][5] = input.nextLine();
+						
+						System.out.println("Digite o número de habilitação do Motorista");
+						
+						pessoa[numeroFuncionario][6] = input.nextLine();
+						
+						System.out.println("Digite o telefone do Motorista");
+						
+						pessoa[numeroFuncionario][7] = input.nextLine();
+						
+						
+						System.out.println("\n\nMotorista adicionado com sucesso! \n\n");
+								
+						
 						
 					}
 					else if(opcaoFuncionario == 6) {
 						
 						pessoa[numeroFuncionario][1] = "Cozinheiro";
+						
+						System.out.println("Digite o nome completo do Cozinheiro");
+						
+						pessoa[numeroFuncionario][2] = input.nextLine();
+						
+						System.out.println("Digite o email do Cozinheiro");
+						
+						pessoa[numeroFuncionario][3] = input.nextLine();
+						
+						System.out.println("Digite o CPF do Cozinheiro");
+						
+						pessoa[numeroFuncionario][4] = input.nextLine();
+						
+						System.out.println("Digite o salário do Cozinheiro");
+						
+						pessoa[numeroFuncionario][5] = input.nextLine();
+							
+						System.out.println("Digite o telefone do Cozinheiro");
+						
+						pessoa[numeroFuncionario][6] = input.nextLine();
+						
+						
+						System.out.println("\n\nCozinheiro adicionado com sucesso! \n\n");
+							
 						
 						
 					}
@@ -140,20 +264,86 @@ public class Main {
 						
 						pessoa[numeroFuncionario][1] = "Advogado";
 						
+						System.out.println("Digite o nome completo do Advogado");
+						
+						pessoa[numeroFuncionario][2] = input.nextLine();
+						
+						System.out.println("Digite o email do Advogado");
+						
+						pessoa[numeroFuncionario][3] = input.nextLine();
+						
+						System.out.println("Digite o CPF do Advogado");
+						
+						pessoa[numeroFuncionario][4] = input.nextLine();
+						
+						System.out.println("Digite o salário do Advogado");
+						
+						pessoa[numeroFuncionario][5] = input.nextLine();
+							
+						System.out.println("Digite o telefone do Advogado");
+						
+						pessoa[numeroFuncionario][6] = input.nextLine();
+						
+						
+						System.out.println("\n\nAdvogado adicionado com sucesso! \n\n");
+							
 						
 					}
 					else if(opcaoFuncionario == 8) {
 						
 						pessoa[numeroFuncionario][1] = "Jogador";
 						
+						System.out.println("Digite o nome completo do Jogador");
+						
+						pessoa[numeroFuncionario][2] = input.nextLine();
+						
+						System.out.println("Digite o tipo de jogador (volante, zagueiro, meia, goleiro, atacante, lateral esquerdo ou lateral direito");
+						
+						pessoa[numeroFuncionario][3] = input.nextLine();
+						
+						System.out.println("Digite o email do Jogador");
+						
+						pessoa[numeroFuncionario][4] = input.nextLine();
+						
+						System.out.println("Digite o CPF do Jogador");
+						
+						pessoa[numeroFuncionario][5] = input.nextLine();
+							
+						System.out.println("Digite o salário do Jogador");
+						
+						pessoa[numeroFuncionario][6] = input.nextLine();
+						
+						System.out.println("Digite o telefone do Jogador");
+						
+						pessoa[numeroFuncionario][7] = input.nextLine();
+						
+						
+						System.out.println("Escolha a situação do jogador");
+						
+						System.out.println("1 - Habilitado para jogar");
+						System.out.println("2 - Inabilitado (Departamento médico)");
+						
+						situacaoJogador = input.nextInt();
+						input.nextLine();
+						
+						if(situacaoJogador == 1) {
+							pessoa[numeroFuncionario][8] = "Habilitado";
+						}
+						else {
+							pessoa[numeroFuncionario][8] = "Inabilitado";
+						}
+		
+						
+						System.out.println("\n\nJogador adicionado com sucesso! \n\n");
+						
+							
 					}
 					else {
 						System.out.println("\nOpção inválida!\n");
 					}
 					
-					System.out.println(pessoa[numeroFuncionario][1]);
 					
-					
+					numeroFuncionario++;
 					
 					break;
 				
