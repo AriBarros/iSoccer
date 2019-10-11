@@ -12,19 +12,20 @@ public class Main {
 	
 	*/
 	
-	static int opcao, opcaoFuncionario, opcaoRecurso, opcaoRelatorio;
+	static int opcao, opcaoFuncionario, opcaoRecurso, opcaoRelatorio, opcaoOnibus, subopcaoOnibus, opcaoEstadio, subopcaoEstadio, opcaoCentro;
 	static String login, senha;
 	
 	
 	
 	public static void main(String[] args) {
 		
-		int numeroFuncionario = 1, situacaoJogador;
+		int numeroFuncionario = 1, situacaoJogador, numeroSocio = 1, qntOnibus = 0, numeroEstadio = 1, qntCentro=0, qntDormitorio=0;
 		int i = 100, j = 9;
 		
 		String[][] pessoa = new String[i][j];
-		
-		
+		String[][] socioTorcedor = new String[i][j];
+		String[][] estadio = new String[i][5];
+	
 		
 		Scanner input = new Scanner(System.in);
 		
@@ -351,16 +352,43 @@ public class Main {
 					
 					System.out.println("ADICIONAR SÓCIO-TORCEDOR");
 					
-					System.out.println("Informe o seu nome: ");
-					System.out.println("Informe seu email: ");
-					System.out.println("Informe seu CPF: ");
-					System.out.println("Informe seu telefone: ");
-					System.out.println("Informe seu endereço: ");
-					System.out.println("Informe o valor de contribuição: ");
+					socioTorcedor[numeroSocio][0] = Integer.toString(numeroSocio);
+					
+					System.out.println("Informe o nome do sócio-torcedor");
+					
+					socioTorcedor[numeroSocio][1] = input.nextLine();
+					
+					System.out.println("Informe o email do sócio-torcedor");
+					
+					socioTorcedor[numeroSocio][2] = input.nextLine();
+					
+					System.out.println("Informe o CPF do sócio-torcedor");
+					
+					socioTorcedor[numeroSocio][3] = input.nextLine();
+					
+					System.out.println("Informe o telefone do sócio-torcedor");
+					
+					socioTorcedor[numeroSocio][4] = input.nextLine();
+					
+					System.out.println("Informe o endereço do sócio-torcedor");
+					
+					socioTorcedor[numeroSocio][5] = input.nextLine();
+					
+					System.out.println("Informe o valor de contribuição do sócio-torcedor");
+					
+					socioTorcedor[numeroSocio][6] = input.nextLine();
+					
+					//7 = adimplente ou inadimplente
+					//8 = tipo sócio torcedor
+					
+					numeroSocio++;
 					
 					break;
 					
 				case 3:
+					
+					//7 = adimplente ou inadimplente
+					//8 = tipo sócio torcedor
 					
 					//Olhar com calma requisito 3
 					
@@ -376,6 +404,178 @@ public class Main {
 					System.out.println("1 - Ônibus");
 					System.out.println("2 - Estádio");
 					System.out.println("3 - Centro de treinamento");
+					
+					opcaoRecurso = input.nextInt();
+					input.nextLine();
+					
+					if(opcaoRecurso == 1) {
+						
+						System.out.println("Gerenciar recurso físico: Ônibus \n");
+						
+						System.out.println("Selecione a opção desejada\n");
+						
+						System.out.println("1 - Adicionar ou verificar ônibus");
+						System.out.println("2 - Informar disponibilidade");
+						
+						opcaoOnibus = input.nextInt();
+						input.nextLine();
+						
+						if(opcaoOnibus == 1) {
+							
+							System.out.println("1 - Adicionar\n");
+							System.out.println("2 - Verificar\n");
+							
+							subopcaoOnibus = input.nextInt();
+							input.nextLine();
+							
+							if(subopcaoOnibus == 1) {
+								
+								qntOnibus++;
+								
+								System.out.println("Ônibus adicionado com sucesso!");
+								
+							}
+							else {
+								System.out.println("Quantidade de ônibus: " + qntOnibus);
+							}
+							
+						}
+						else {
+							
+							if(qntOnibus!=0) {
+								System.out.println("Há disponibilidade de Ônibus!");
+							}
+							else {
+								System.out.println("Não há disponibilidade de Ônibus!");
+							}
+							
+						}
+						
+						
+					}
+					else if(opcaoRecurso == 2) {
+						
+						System.out.println("Gerenciar recurso físico: Estádio \n");
+						
+						System.out.println("Selecione a opção desejada\n");
+						
+						System.out.println("1 - Adicionar ou buscar Estádio");
+						System.out.println("2 - Informar disponibilidade");
+				
+						opcaoEstadio = input.nextInt();
+						input.nextLine();
+						
+						if(opcaoEstadio == 1) {
+							
+							System.out.println("1 - Adicionar\n");
+							System.out.println("2 - Buscar\n");
+							
+							subopcaoEstadio = input.nextInt();
+							input.nextLine();
+							
+							if(subopcaoEstadio == 1) {
+								
+								estadio[numeroEstadio][0] = Integer.toString(numeroEstadio);
+								
+								System.out.println("Digite o nome do estádio");
+								
+								estadio[numeroEstadio][1] = input.nextLine();
+								
+								System.out.println("Digite o número de torcedores suportados no estádio");
+								
+								estadio[numeroEstadio][2] = input.nextLine();
+								
+								System.out.println("Digite a quantidade de banheiros do estádio");
+								
+								estadio[numeroEstadio][3] = input.nextLine();
+								
+								
+								System.out.println("Digite a quantidade de lanchonetes do estádio");
+								
+								estadio[numeroEstadio][4] = input.nextLine();
+								
+								System.out.println("\nEstádio adicionado com sucesso!\n");
+								
+								numeroEstadio++;
+								
+							}
+							else if(subopcaoEstadio == 2){
+								
+								//buscar estádio
+								
+							}
+							else {
+								
+								System.out.println("Opção inválida");
+								
+							}
+							
+							
+						}
+						else
+						{
+							
+							//1 devido ao id do estádio criado acima
+							if(numeroEstadio >1) {
+								System.out.println("Há disponibilidade de estádio!");
+							}
+							else {
+								System.out.println("Não há disponibilidade de estádio!");
+							}
+							
+						}
+						
+						
+					}
+					if(opcaoRecurso == 3) {
+						
+						System.out.println("Selecione a opção desejada\n");
+						
+						System.out.println("1 - Adicionar Centro de treinamento");
+						System.out.println("2 - Informar disponibilidade");
+						System.out.println("3 - Informar quantidade de dormitórios");
+						
+						if(opcaoCentro == 1) {
+							
+							System.out.println("Digite a quantidade de dormitórios");
+							
+							qntDormitorio = input.nextInt();
+							input.nextLine();
+							
+							qntCentro++;
+							
+						}
+						else if(opcaoCentro == 2) {
+							
+							if(qntCentro>0) {
+								
+								System.out.println("Há disponibilidade de Centro de treinamento");
+							
+							}
+							else {
+								System.out.println("Não há disponibilidade de Centro de treinamento");
+							}
+							
+						}
+						else if(opcaoCentro== 3) {
+							
+							System.out.println("Quantidade de dormitórios: " + qntDormitorio);
+							
+						}
+						else {
+							
+							System.out.println("\nOpção inválida!\n");
+							
+						}
+						
+
+					}
+					else {
+						
+						System.out.println("\nOpção inválida!\n");
+						
+					}
+					
 					
 					
 					break;
