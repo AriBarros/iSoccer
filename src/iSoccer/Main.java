@@ -440,7 +440,7 @@ public class Main {
 							}
 							
 						}
-						else {
+						else if(opcaoOnibus == 2) {
 							
 							if(qntOnibus!=0) {
 								System.out.println("Há disponibilidade de Ônibus!");
@@ -448,6 +448,11 @@ public class Main {
 							else {
 								System.out.println("Não há disponibilidade de Ônibus!");
 							}
+							
+						}
+						else {
+							
+							System.out.println("\nOpção inválida!\n");
 							
 						}
 						
