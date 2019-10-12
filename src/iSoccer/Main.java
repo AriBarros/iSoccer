@@ -596,8 +596,48 @@ public class Main {
 					System.out.println("3 - Relatório sobre sócios-torcedores");
 					System.out.println("4 - Relatório geral");
 					
+					opcaoRelatorio = input.nextInt();
+					input.nextLine();
 					
 					
+					if(opcaoRelatorio == 1) {
+						
+						System.out.println("Escolha o relatório sobre funcionários que deseja");
+						
+						System.out.println("1 - Time");
+						System.out.println("2 - Jogadores aptos para jogar");
+						System.out.println("3 - Jogadores inaptos para jogar");
+						System.out.println("4 - Serviços gerais");
+						
+					}
+					else if(opcaoRelatorio == 2) {
+						
+						System.out.println("Escolha o relatório do recurso físico que deseja");
+						
+						System.out.println("1 - Transporte");
+						System.out.println("2 - Centro de treinamento");
+						System.out.println("3 - Estádio");
+						
+					}
+					else if(opcaoRelatorio == 3) {
+						
+						System.out.println("Escolha o relatório desejado");
+						
+						System.out.println("1 - Quantidade de sócio-torcedores");
+						System.out.println("2 - Quantidade de adimplentes");
+						System.out.println("3 - Quantidade de inadimplentes");
+						System.out.println("4 - Lista com dados individuais");
+						
+						
+					}
+					else if(opcaoRelatorio == 4) {
+						
+						System.out.println("Relatório de funcionários, recursos físicos e sócio-torcedor");
+						
+					}
+					else {
+						System.out.println("\nOpção inválida!\n");
+					}
 					
 					break;
 					
