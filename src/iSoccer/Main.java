@@ -4,15 +4,9 @@ import java.util.Scanner;
 
 public class Main {
 	
-	/*
-			 0					  1
-			 
-		N° Funcionáro |	  Tipo de funcionário  | 
-		
-	
-	*/
 	
 	static int opcao, opcaoFuncionario, opcaoRecurso, opcaoRelatorio, opcaoOnibus, subopcaoOnibus, opcaoEstadio, subopcaoEstadio, opcaoCentro;
+	static int relatorioFuncionario, relatorioRecurso, relatorioSocio; 
 	static String login, senha;
 	
 	
@@ -29,16 +23,21 @@ public class Main {
 		
 		Scanner input = new Scanner(System.in);
 		
-		System.out.println("Informe o login e a senha para entrar no sistema\n");
-		System.out.print("Login: ");
-		
-		login = input.nextLine();
-		
-		System.out.print("Senha: ");
-		
-		senha = input.nextLine();
-		
-		if(login.equals("admin") && senha.equals("123")) {
+		//Login no sistema
+		do {
+			
+			System.out.println("\nInforme o login e a senha para entrar no sistema\n");
+			System.out.print("Login: ");
+			
+			login = input.nextLine();
+			
+			System.out.print("Senha: ");
+			
+			senha = input.nextLine();
+			
+			
+		}
+		while(!(login.equals("admin") && senha.equals("123"))); 
 			
 		
 			while(opcao!=6) {
@@ -350,7 +349,7 @@ public class Main {
 				
 				case 2:
 					
-					System.out.println("ADICIONAR SÓCIO-TORCEDOR");
+					System.out.println("\n-- ADICIONAR SÓCIO-TORCEDOR --\n");
 					
 					socioTorcedor[numeroSocio][0] = Integer.toString(numeroSocio);
 					
@@ -397,9 +396,9 @@ public class Main {
 					
 				case 4:
 					
-					System.out.println("GERENCIAR RECURSOS FÍSICOS");
+					System.out.println("\n-- GERENCIAR RECURSOS FÍSICOS --\n");
 					
-					System.out.println("Escolha uma opção: ");
+					System.out.println("Escolha uma opção\n");
 					
 					System.out.println("1 - Ônibus");
 					System.out.println("2 - Estádio");
@@ -422,8 +421,9 @@ public class Main {
 						
 						if(opcaoOnibus == 1) {
 							
-							System.out.println("1 - Adicionar\n");
-							System.out.println("2 - Verificar\n");
+							System.out.println("Digite a opção\n");
+							System.out.println("1 - Adicionar");
+							System.out.println("2 - Verificar");
 							
 							subopcaoOnibus = input.nextInt();
 							input.nextLine();
@@ -472,8 +472,10 @@ public class Main {
 						
 						if(opcaoEstadio == 1) {
 							
-							System.out.println("1 - Adicionar\n");
-							System.out.println("2 - Buscar\n");
+							System.out.println("Digite a opção\n");
+							
+							System.out.println("1 - Adicionar");
+							System.out.println("2 - Buscar");
 							
 							subopcaoEstadio = input.nextInt();
 							input.nextLine();
@@ -532,7 +534,7 @@ public class Main {
 						
 						
 					}
-					if(opcaoRecurso == 3) {
+					else if(opcaoRecurso == 3) {
 						
 						System.out.println("Selecione a opção desejada\n");
 						
@@ -587,9 +589,9 @@ public class Main {
 					
 				case 5:
 					
-					System.out.println("SOLICITAR RELATÓRIO");
+					System.out.println("\n-- SOLICITAR RELATÓRIO --\n");
 					
-					System.out.println("Escolha uma opção: ");
+					System.out.println("Escolha uma opção\n");
 					
 					System.out.println("1 - Relatório sobre funcionários");
 					System.out.println("2 - Relatório sobre recursos físicos");
@@ -609,6 +611,25 @@ public class Main {
 						System.out.println("3 - Jogadores inaptos para jogar");
 						System.out.println("4 - Serviços gerais");
 						
+						relatorioFuncionario = input.nextInt();
+						input.nextLine();
+						
+						if(relatorioFuncionario == 1) {
+							
+						}
+						else if(relatorioFuncionario == 2) {
+							
+						}
+						else if(relatorioFuncionario == 3) {
+							
+						}
+						else if(relatorioFuncionario == 4) {
+							
+						}
+						else {
+							
+						}
+						
 					}
 					else if(opcaoRelatorio == 2) {
 						
@@ -617,6 +638,23 @@ public class Main {
 						System.out.println("1 - Transporte");
 						System.out.println("2 - Centro de treinamento");
 						System.out.println("3 - Estádio");
+						
+						
+						relatorioRecurso = input.nextInt();
+						input.nextLine();
+						
+						if(relatorioRecurso == 1) {
+							
+						}
+						else if(relatorioRecurso == 2) {
+							
+						}
+						else if(relatorioRecurso == 3) {
+							
+						}
+						else {
+							
+						}
 						
 					}
 					else if(opcaoRelatorio == 3) {
@@ -627,6 +665,25 @@ public class Main {
 						System.out.println("2 - Quantidade de adimplentes");
 						System.out.println("3 - Quantidade de inadimplentes");
 						System.out.println("4 - Lista com dados individuais");
+						
+						relatorioSocio = input.nextInt();
+						input.nextLine();
+						
+						if(relatorioSocio == 1) {
+							
+						}
+						else if(relatorioSocio == 2) {
+							
+						}
+						else if(relatorioSocio == 3) {
+							
+						}
+						else if(relatorioSocio == 4) {
+							
+						}
+						else {
+							
+						}
 						
 						
 					}
@@ -656,4 +713,4 @@ public class Main {
 		}
 	}
 
-}
+
