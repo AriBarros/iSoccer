@@ -35,6 +35,16 @@ public class Main {
 			
 			senha = input.nextLine();
 			
+			if(!login.equals("admin") && senha.equals("123")) {
+				System.out.println("Login incorreto");
+			}
+			else if(login.equals("admin") && !senha.equals("123")) {
+				System.out.println("Senha incorreta");
+			}
+			else if(!(login.equals("admin") && senha.equals("123"))) {
+				System.out.println("Login e senha incorretos");
+			}
+			
 			
 		}
 		while(!(login.equals("admin") && senha.equals("123"))); 
