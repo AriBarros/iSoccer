@@ -5,8 +5,9 @@ import java.util.Scanner;
 public class Main {
 	
 	
-	static int opcao, opcaoFuncionario, opcaoRecurso, opcaoRelatorio, opcaoOnibus, subopcaoOnibus, opcaoEstadio, subopcaoEstadio, opcaoCentro;
+	static int opcao, opcaoFuncionario, opcaoRecurso, opcaoRelatorio, opcaoOnibus, subopcaoOnibus, opcaoEstadio, subopcaoEstadio, opcaoCentro, opcaoSocio;
 	static int relatorioFuncionario, relatorioRecurso, relatorioSocio; 
+	static int statusSocio, tipoSocio, atualizarSocio, estadoSocio;
 	static String login, senha;
 	
 	
@@ -14,11 +15,11 @@ public class Main {
 	public static void main(String[] args) {
 		
 		int numeroFuncionario = 1, situacaoJogador, numeroSocio = 1, qntOnibus = 0, numeroEstadio = 1, qntCentro=0, qntDormitorio=0;
-		int i = 100, j = 9;
+		int linha = 100, coluna = 9;
 		
-		String[][] pessoa = new String[i][j];
-		String[][] socioTorcedor = new String[i][j];
-		String[][] estadio = new String[i][5];
+		String[][] pessoa = new String[linha][coluna];
+		String[][] socioTorcedor = new String[linha][coluna];
+		String[][] estadio = new String[linha][5];
 	
 		
 		Scanner input = new Scanner(System.in);
@@ -57,7 +58,7 @@ public class Main {
 				System.out.println("Escolha uma das opções a seguir: \n");
 				System.out.println("1 - Adicionar funcionário");
 				System.out.println("2 - Adicionar sócio-torcedor");
-				System.out.println("3 - Alterar estado de pagamento dos sócios");
+				System.out.println("3 - Atualizar sócio-torcedor");
 				System.out.println("4 - Gerenciar recursos físicos");
 				System.out.println("5 - Soliciar relatório");
 				System.out.println("6 - Sair do sistema\n");
@@ -339,8 +340,12 @@ public class Main {
 						if(situacaoJogador == 1) {
 							pessoa[numeroFuncionario][8] = "Habilitado";
 						}
-						else {
+						else if(situacaoJogador == 2) {
 							pessoa[numeroFuncionario][8] = "Inabilitado";
+						}
+						else {
+							System.out.println("\nOpção Inválida!\n");
+							break;
 						}
 		
 						
@@ -387,21 +392,210 @@ public class Main {
 					
 					socioTorcedor[numeroSocio][6] = input.nextLine();
 					
-					//7 = adimplente ou inadimplente
-					//8 = tipo sócio torcedor
+					System.out.println("Informe o tipo de sócio-torcedor: 1 - Júnior, 2 - Sênior, 3 - Elite");
 					
+					tipoSocio = input.nextInt();
+					input.nextLine();
+					
+					if(tipoSocio == 1) {
+						socioTorcedor[numeroSocio][7] = "Júnior";
+					}
+					else if(tipoSocio == 2) {
+						socioTorcedor[numeroSocio][7] = "Sênior";
+					}
+					else if(tipoSocio == 3) {
+						socioTorcedor[numeroSocio][7] = "Elite";
+					}
+					else {
+						System.out.println("\nOpção Inválida!\n");
+						break;
+					}
+					
+			
+					
+					System.out.println("Informe o estado de pagamento do sócio-torcedor: 1- Adimplente ou 2- Inadimplente");
+					
+	
+					statusSocio = input.nextInt();
+					input.nextLine();
+					
+					if(statusSocio == 1) {
+						socioTorcedor[numeroSocio][8] = "Adimplente";
+					}
+					else if(statusSocio == 2) {
+						socioTorcedor[numeroSocio][8] = "Inadimplente";
+					}
+					else {
+						System.out.println("\nOpção Inválida!\n");
+						break;
+					}
+					
+					System.out.println("Sócio-torcedor adicionado com sucesso!");
+						
 					numeroSocio++;
 					
 					break;
 					
 				case 3:
 					
-					//7 = adimplente ou inadimplente
-					//8 = tipo sócio torcedor
+					System.out.println("\n-- ATUALIZAR SÓCIO-TORCEDOR --\n");
 					
-					//Olhar com calma requisito 3
+					System.out.println("Escolha a opção que deseja\n");
 					
+					System.out.println("1 - Alterar tipo de sócio-torcedor");
+					System.out.println("2 - Alterar o valor de pagamento do sócio-torcedor");
+					System.out.println("3 - Alterar estado de pagamento do sócio-torcedor");
 					
+					opcaoSocio = input.nextInt();
+					input.nextLine();
+					
+					if(opcaoSocio == 1) {
+						
+						System.out.println("Escolha o número do sócio torcedor\n");
+						
+						for(int i = 1; i<numeroSocio; i++) {
+							
+							System.out.print("" + i + " - ");
+							
+							for(int j =1; j<coluna; j++) {
+								
+								System.out.print("" + socioTorcedor[i][j] + " | ");
+								
+							}
+							
+							System.out.println("\n");
+						}
+						
+						atualizarSocio = input.nextInt();
+						input.nextLine();
+						
+						for(int i = 1; i<numeroSocio; i++) {
+							
+							if(atualizarSocio == i) {
+								
+								System.out.println("Escolha o tipo de sócio para atualizar o atual\n");
+								
+								System.out.println("1 - Júnior");
+								System.out.println("2 - Sênior");
+								System.out.println("3 - Elite");
+								
+								tipoSocio = input.nextInt();
+								input.nextLine();
+								
+								if(tipoSocio == 1) {
+									socioTorcedor[i][7] = "Júnior";
+								}
+								else if(tipoSocio == 2) {
+									socioTorcedor[i][7] = "Sênior";
+								}
+								else if(tipoSocio == 3) {
+									socioTorcedor[i][7] = "Elite";
+								}
+								else {
+									System.out.println("\nOpção Inválida!\n");
+									break;
+								}
+								
+								break;
+								
+							}
+							
+						}
+						
+						System.out.println("\nSócio-torcedor atualizado com sucesso!\n");
+						
+					}
+					else if(opcaoSocio == 2) {
+						
+						System.out.println("Escolha o número do sócio torcedor\n");
+						
+						for(int i = 1; i<numeroSocio; i++) {
+							
+							System.out.print("" + i + " - ");
+							
+							for(int j =1; j<coluna; j++) {
+								
+								System.out.print("" + socioTorcedor[i][j] + " | ");
+								
+							}
+							
+							System.out.println("\n");
+						}
+						
+						atualizarSocio = input.nextInt();
+						input.nextLine();
+						
+						for(int i = 1; i<numeroSocio; i++) {
+							
+							if(atualizarSocio == i) {
+								
+								System.out.println("Digite o valor de contribuição para que o atual seja modificado");
+								
+								socioTorcedor[i][6] = input.nextLine();
+								
+								break;
+							}
+							
+						}
+						
+						System.out.println("\nSócio-torcedor atualizado com sucesso!\n");
+						
+					}
+					else if(opcaoSocio == 3) {
+						
+						System.out.println("Escolha o número do sócio torcedor\n");
+						
+						for(int i = 1; i<numeroSocio; i++) {
+							
+							System.out.print("" + i + " - ");
+							
+							for(int j =1; j<coluna; j++) {
+								
+								System.out.print("" + socioTorcedor[i][j] + " | ");
+								
+							}
+							
+							System.out.println("\n");
+						}
+						
+						atualizarSocio = input.nextInt();
+						input.nextLine();
+						
+						for(int i = 1; i<numeroSocio; i++) {
+							
+							if(atualizarSocio == i) {
+								
+								System.out.println("Escolha o estado de pagamento do sócio-torcedor");
+								
+								System.out.println("1 - Adimplente");
+								System.out.println("2 - Inadimplente");
+								
+								estadoSocio = input.nextInt();
+								input.nextLine();
+								
+								if(estadoSocio == 1) {
+									socioTorcedor[i][8] = "Adimplente";
+								}
+								else if(estadoSocio == 2) {
+									socioTorcedor[i][8] = "Inadimplente";
+								}
+								else {
+									System.out.println("\nOpção Inválida!\n");
+									break;
+								}
+								
+								break;
+							}
+							
+						}
+						
+						System.out.println("\nSócio-torcedor atualizado com sucesso!\n");
+						
+					}
+					else {
+						System.out.println("\nOpção Inválida!\n");
+					}
+									
 					break;
 					
 				case 4:
@@ -445,8 +639,12 @@ public class Main {
 								System.out.println("Ônibus adicionado com sucesso!");
 								
 							}
-							else {
+							else if(subopcaoOnibus == 2) {
 								System.out.println("Quantidade de ônibus: " + qntOnibus);
+							}
+							else {
+								System.out.println("\nOpção Inválida!\n");
+								break;
 							}
 							
 						}
