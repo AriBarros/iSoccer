@@ -8,18 +8,20 @@ public class Main {
 	static int opcao, opcaoFuncionario, opcaoRecurso, opcaoRelatorio, opcaoOnibus, subopcaoOnibus, opcaoEstadio, subopcaoEstadio, opcaoCentro, opcaoSocio;
 	static int relatorioFuncionario, relatorioRecurso, relatorioSocio; 
 	static int statusSocio, tipoSocio, atualizarSocio, estadoSocio;
-	static String login, senha;
-	
+	static int idEstadio;
+	static String login, senha;	
 	
 	
 	public static void main(String[] args) {
 		
-		int numeroFuncionario = 1, situacaoJogador, numeroSocio = 1, qntOnibus = 0, numeroEstadio = 1, qntCentro=0, qntDormitorio=0;
+		int numeroFuncionario = 1, situacaoJogador, numeroSocio = 1, qntOnibus = 0, numeroEstadio = 1, numeroCentro=1, qntDormitorio=0;
 		int linha = 100, coluna = 9;
 		
 		String[][] pessoa = new String[linha][coluna];
 		String[][] socioTorcedor = new String[linha][coluna];
 		String[][] estadio = new String[linha][5];
+		String[][] centro = new String[linha][2];
+		
 	
 		
 		Scanner input = new Scanner(System.in);
@@ -438,6 +440,13 @@ public class Main {
 					
 				case 3:
 					
+					if(numeroSocio<=1) {
+						
+						System.out.println("Não há sócios-torcedores para atualizar");
+						
+						break;
+					}
+					
 					System.out.println("\n-- ATUALIZAR SÓCIO-TORCEDOR --\n");
 					
 					System.out.println("Escolha a opção que deseja\n");
@@ -704,7 +713,6 @@ public class Main {
 								
 								estadio[numeroEstadio][3] = input.nextLine();
 								
-								
 								System.out.println("Digite a quantidade de lanchonetes do estádio");
 								
 								estadio[numeroEstadio][4] = input.nextLine();
@@ -716,12 +724,32 @@ public class Main {
 							}
 							else if(subopcaoEstadio == 2){
 								
-								//buscar estádio
+								if(numeroEstadio<=1) {
+									
+									System.out.println("Nenhum estádio disponível para a busca");
+									break;
+									
+								}
+								
+								System.out.println("Digite o número do estádio\n");
+								
+								idEstadio = input.nextInt();
+								
+								for(int i = 1; i < numeroEstadio; i++) {
+									
+									if(idEstadio == i) {
+										
+										System.out.println("Nome: " + estadio[i][1] + " | Número de torcedores suportados: " + estadio[i][2] + " | Número de banheiros: " + estadio[i][3] + " | Número de lanchonetes: " + estadio[i][4]);
+										
+									}
+									
+								}
+								
 								
 							}
 							else {
 								
-								System.out.println("Opção inválida");
+								System.out.println("\nOpção inválida!\n");
 								
 							}
 							
@@ -750,19 +778,26 @@ public class Main {
 						System.out.println("2 - Informar disponibilidade");
 						System.out.println("3 - Informar quantidade de dormitórios");
 						
+						opcaoCentro = input.nextInt();
+						input.nextLine();
+						
 						if(opcaoCentro == 1) {
+							
+							centro[numeroCentro][0] = Integer.toString(numeroCentro);
 							
 							System.out.println("Digite a quantidade de dormitórios");
 							
-							qntDormitorio = input.nextInt();
-							input.nextLine();
+							centro[numeroCentro][1] = input.nextLine();
 							
-							qntCentro++;
+							System.out.println("\nCentro de treinamento adicionado com sucesso!\n");
+											
+							numeroCentro++;
 							
 						}
 						else if(opcaoCentro == 2) {
 							
-							if(qntCentro>0) {
+							//1 por causa do id do numeroCentro
+							if(numeroCentro>1) {
 								
 								System.out.println("Há disponibilidade de Centro de treinamento");
 							
@@ -772,9 +807,18 @@ public class Main {
 							}
 							
 						}
-						else if(opcaoCentro== 3) {
+						else if(opcaoCentro == 3) {
 							
-							System.out.println("Quantidade de dormitórios: " + qntDormitorio);
+							System.out.println("Quantidade de dormitórios a partir dos Centros de treinamento disponíveis");
+							
+							for(int i = 1; i<numeroCentro; i++) {
+								
+								System.out.print("" + i + " - ");
+								for(int j= 1; j<2; j++) {
+									System.out.println("" + centro[i][j]);
+								}
+								
+							}
 							
 						}
 						else {
