@@ -14,15 +14,15 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		int numeroFuncionario = 1, situacaoJogador, numeroSocio = 1, qntOnibus = 0, numeroEstadio = 1, numeroCentro=1, qntDormitorio=0;
-		int linha = 100, coluna = 9;
+		int numeroFuncionario = 1, situacaoJogador, numeroSocio = 1, qntOnibus = 0, qntSocio = 0, numeroEstadio = 1, numeroCentro=1;
+		int linha = 100, coluna = 10;
+		
 		
 		String[][] pessoa = new String[linha][coluna];
 		String[][] socioTorcedor = new String[linha][coluna];
 		String[][] estadio = new String[linha][5];
 		String[][] centro = new String[linha][2];
 		
-	
 		
 		Scanner input = new Scanner(System.in);
 		
@@ -116,6 +116,7 @@ public class Main {
 						
 						pessoa[numeroFuncionario][6] = input.nextLine();
 						
+						pessoa[numeroFuncionario][6] = pessoa[numeroFuncionario][7] = pessoa[numeroFuncionario][8] = pessoa[numeroFuncionario][8] = pessoa[numeroFuncionario][9] = null;
 						
 						System.out.println("\n\nPresidente adicionado com sucesso! \n\n");
 						
@@ -149,7 +150,10 @@ public class Main {
 						
 						pessoa[numeroFuncionario][7] = input.nextLine();
 						
+						pessoa[numeroFuncionario][8] = pessoa[numeroFuncionario][8] = pessoa[numeroFuncionario][9] = null;
 						
+						
+	
 						System.out.println("\n\nMédico adicionado com sucesso! \n\n");
 						
 					}
@@ -177,6 +181,9 @@ public class Main {
 						
 						pessoa[numeroFuncionario][6] = input.nextLine();
 						
+						pessoa[numeroFuncionario][7] = pessoa[numeroFuncionario][8] = pessoa[numeroFuncionario][8] = pessoa[numeroFuncionario][9] = null;
+						
+						
 						System.out.println("\n\nTécnico adicionado com sucesso! \n\n");
 										
 					}
@@ -203,6 +210,9 @@ public class Main {
 						System.out.println("Digite o telefone do Preparador Físico");
 						
 						pessoa[numeroFuncionario][6] = input.nextLine();
+						
+						pessoa[numeroFuncionario][7] = pessoa[numeroFuncionario][8] = pessoa[numeroFuncionario][8] = pessoa[numeroFuncionario][9] = null;
+						
 						
 						System.out.println("\n\nPreparador físico adicionado com sucesso! \n\n");
 								
@@ -237,6 +247,9 @@ public class Main {
 						
 						pessoa[numeroFuncionario][7] = input.nextLine();
 						
+						pessoa[numeroFuncionario][8] = pessoa[numeroFuncionario][8] = pessoa[numeroFuncionario][9] = null;
+						
+						
 						
 						System.out.println("\n\nMotorista adicionado com sucesso! \n\n");
 								
@@ -267,6 +280,9 @@ public class Main {
 						
 						pessoa[numeroFuncionario][6] = input.nextLine();
 						
+						pessoa[numeroFuncionario][7] = pessoa[numeroFuncionario][8] = pessoa[numeroFuncionario][8] = pessoa[numeroFuncionario][9] = null;
+						
+						
 						
 						System.out.println("\n\nCozinheiro adicionado com sucesso! \n\n");
 							
@@ -296,6 +312,9 @@ public class Main {
 						System.out.println("Digite o telefone do Advogado");
 						
 						pessoa[numeroFuncionario][6] = input.nextLine();
+						
+						pessoa[numeroFuncionario][7] = pessoa[numeroFuncionario][8] = pessoa[numeroFuncionario][8] = pessoa[numeroFuncionario][9] = null;
+						
 						
 						
 						System.out.println("\n\nAdvogado adicionado com sucesso! \n\n");
@@ -340,10 +359,14 @@ public class Main {
 						input.nextLine();
 						
 						if(situacaoJogador == 1) {
+							
 							pessoa[numeroFuncionario][8] = "Habilitado";
+											
 						}
 						else if(situacaoJogador == 2) {
+							
 							pessoa[numeroFuncionario][8] = "Inabilitado";
+							
 						}
 						else {
 							System.out.println("\nOpção Inválida!\n");
@@ -358,6 +381,8 @@ public class Main {
 					else {
 						System.out.println("\nOpção inválida!\n");
 					}
+					
+					pessoa[numeroFuncionario][9] = null;
 					
 					
 					numeroFuncionario++;
@@ -426,6 +451,7 @@ public class Main {
 					}
 					else if(statusSocio == 2) {
 						socioTorcedor[numeroSocio][8] = "Inadimplente";
+						
 					}
 					else {
 						System.out.println("\nOpção Inválida!\n");
@@ -435,6 +461,7 @@ public class Main {
 					System.out.println("Sócio-torcedor adicionado com sucesso!");
 						
 					numeroSocio++;
+					qntSocio++;
 					
 					break;
 					
@@ -813,7 +840,7 @@ public class Main {
 							
 							for(int i = 1; i<numeroCentro; i++) {
 								
-								System.out.print("" + i + " - ");
+								System.out.print("" + i + " - Quantidade de dormitórios:");
 								for(int j= 1; j<2; j++) {
 									System.out.println("" + centro[i][j]);
 								}
@@ -856,7 +883,7 @@ public class Main {
 					
 					if(opcaoRelatorio == 1) {
 						
-						System.out.println("Escolha o relatório sobre funcionários que deseja");
+						System.out.println("\nEscolha o relatório sobre funcionários que deseja\n");
 						
 						System.out.println("1 - Time");
 						System.out.println("2 - Jogadores aptos para jogar");
@@ -868,24 +895,147 @@ public class Main {
 						
 						if(relatorioFuncionario == 1) {
 							
+							System.out.println("\nTécnico(s):\n");
+							
+							//Informação dos técnicos
+							for(int i = 1; i< numeroFuncionario; i++) {
+								
+								if(pessoa[i][1] == "Técnico") {
+									
+									for(int j = 1; j<7; j++) {
+										
+										System.out.print("" + pessoa[i][j] + " | ");
+										
+									}
+									
+									System.out.println();
+								}
+								
+							}
+							
+							System.out.println("\n\nJogador(es):\n");
+							
+							//Informação dos jogadores
+							for(int i = 1; i< numeroFuncionario; i++) {
+								
+								if(pessoa[i][1] == "Jogador") {
+									
+									for(int j = 1; j<9; j++) {
+										
+										System.out.print("" + pessoa[i][j] + " | ");
+										
+									}
+									
+									System.out.println();
+								}
+								
+							}
+							
+							
+							
 						}
 						else if(relatorioFuncionario == 2) {
+							
+							System.out.println("Jogador(es) apto(s):\n");
+							
+							for(int i = 1; i< numeroFuncionario; i++) {
+								
+								
+								if(pessoa[i][1] == "Jogador" && pessoa[i][8] == "Habilitado") {
+									
+									for(int j = 1; j<9; j++) {
+										
+										System.out.print("" + pessoa[i][j] + " | ");
+										
+									}
+									
+									System.out.println();
+								}
+								
+							}
 							
 						}
 						else if(relatorioFuncionario == 3) {
 							
+							System.out.println("Jogador(es) inapto(s):\n");
+							
+							for(int i = 1; i< numeroFuncionario; i++) {
+								
+								
+								if(pessoa[i][1] == "Jogador" && pessoa[i][8] == "Inabilitado") {
+									
+									for(int j = 1; j<9; j++) {
+										
+										System.out.print("" + pessoa[i][j] + " | ");
+										
+									}
+									
+									System.out.println();
+								}
+								
+							}
+							
 						}
 						else if(relatorioFuncionario == 4) {
 							
+							System.out.println("\nMédico(s):\n");
+							for(int i = 1; i< numeroFuncionario; i++) {
+								
+								if(pessoa[i][1] == "Médico") {
+									
+									for(int j = 1; j<8; j++) {
+										
+										System.out.print("" + pessoa[i][j] + " | ");
+										
+									}
+									
+									System.out.println();
+								}
+								
+							}
+							
+							System.out.println("\nMotorista(s):\n");
+							for(int i = 1; i< numeroFuncionario; i++) {
+								
+								if(pessoa[i][1] == "Motorista") {
+									
+									for(int j = 1; j<8; j++) {
+										
+										System.out.print("" + pessoa[i][j] + " | ");
+										
+									}
+									
+									System.out.println();
+								}
+								
+							}
+							
+							System.out.println("\nCozinheiro(s):\n");
+							for(int i = 1; i< numeroFuncionario; i++) {
+								
+								if(pessoa[i][1] == "Cozinheiro") {
+									
+									for(int j = 1; j<7; j++) {
+										
+										System.out.print("" + pessoa[i][j] + " | ");
+										
+									}
+									
+									System.out.println();
+								}
+								
+							}
+							
+							
 						}
 						else {
-							
+							System.out.println("\nOpção inválida!\n");
 						}
 						
 					}
 					else if(opcaoRelatorio == 2) {
 						
-						System.out.println("Escolha o relatório do recurso físico que deseja");
+						System.out.println("\nEscolha o relatório do recurso físico que deseja");
 						
 						System.out.println("1 - Transporte");
 						System.out.println("2 - Centro de treinamento");
@@ -896,26 +1046,47 @@ public class Main {
 						input.nextLine();
 						
 						if(relatorioRecurso == 1) {
-							
+							System.out.println("\nQuantidade de ônibus: " + qntOnibus);
 						}
 						else if(relatorioRecurso == 2) {
+							
+							System.out.println("\nCentro(s) de treinamento(s):\n");
+							
+							for(int i = 1; i<numeroCentro; i++) {
+								
+								System.out.print("" + i + " - Quantidade de dormitórios:");
+								for(int j= 1; j<2; j++) {
+									System.out.println("" + centro[i][j]);
+								}
+								
+							}
 							
 						}
 						else if(relatorioRecurso == 3) {
 							
+							System.out.println("\nEstádio(s):\n");
+							
+							for(int i = 1; i < numeroEstadio; i++) {
+								
+								System.out.println("Nome: " + estadio[i][1] + " | Número de torcedores suportados: " + estadio[i][2] + " | Número de banheiros: " + estadio[i][3] + " | Número de lanchonetes: " + estadio[i][4]);
+									
+							}
+							
 						}
 						else {
+							
+							System.out.println("\nOpção inválida!\n");
 							
 						}
 						
 					}
 					else if(opcaoRelatorio == 3) {
 						
-						System.out.println("Escolha o relatório desejado");
+						System.out.println("\nEscolha o tipo de relatório desejado\n");
 						
 						System.out.println("1 - Quantidade de sócio-torcedores");
-						System.out.println("2 - Quantidade de adimplentes");
-						System.out.println("3 - Quantidade de inadimplentes");
+						System.out.println("2 - Sócio-torcedores adimplentes");
+						System.out.println("3 - Sócio-torcedores inadimplentes");
 						System.out.println("4 - Lista com dados individuais");
 						
 						relatorioSocio = input.nextInt();
@@ -923,17 +1094,67 @@ public class Main {
 						
 						if(relatorioSocio == 1) {
 							
+							System.out.println("Quantidade de sócio-torcedores: " + qntSocio);
+
 						}
 						else if(relatorioSocio == 2) {
+							
+							for(int i= 1; i<numeroSocio; i++) {
+								
+								if(socioTorcedor[i][8] == "Adimplente") {
+															
+									System.out.print("" + i + " - ");
+									for(int j =1; j<9; j++) {
+										
+										System.out.print("" + socioTorcedor[i][j] + " | ");
+										
+									}
+									
+									System.out.println();
+								}
+							}
+							
 							
 						}
 						else if(relatorioSocio == 3) {
 							
+							for(int i= 1; i<numeroSocio; i++) {
+								
+								if(socioTorcedor[i][8] == "Inadimplente") {
+															
+									
+									System.out.print("" + i + " - ");
+									for(int j =1; j<9; j++) {
+										
+										System.out.print("" + socioTorcedor[i][j] + " | ");
+										
+									}
+									
+									System.out.println();
+								}
+							}
+							
+							
 						}
 						else if(relatorioSocio == 4) {
 							
+							for(int i= 1; i<numeroSocio; i++) {
+								
+								System.out.print("" + i + " - ");
+								for(int j =1; j<9; j++) {
+									
+									System.out.print("" + socioTorcedor[i][j] + " | ");
+									
+								}
+								
+								System.out.println();
+							}
+							
+							
 						}
 						else {
+							
+							System.out.println("\nOpção inválida!\n");
 							
 						}
 						
@@ -941,7 +1162,78 @@ public class Main {
 					}
 					else if(opcaoRelatorio == 4) {
 						
-						System.out.println("Relatório de funcionários, recursos físicos e sócio-torcedor");
+						System.out.println("\nRelatório de funcionários, recursos físicos e sócio-torcedor\n");
+						
+						System.out.println("Funcionário(s):");
+						
+						for(int i = 1; i<numeroFuncionario; i++) {
+							
+							System.out.print("" + i + " - ");
+							
+							for(int j = 1; j<coluna; j++) {
+								
+								if(pessoa[i][j] != null) {
+									System.out.print("" + pessoa[i][j] + " | ");
+								}
+								
+								
+							}
+							
+						}
+						
+						System.out.println();
+						
+						System.out.println("Quantidade de ônibus: " + qntOnibus);
+						
+						System.out.println("\nEstádio(s):");
+						
+						for(int i=1; i<numeroEstadio; i++) {
+							
+							System.out.print("" + i + " - ");
+							
+							for(int j=1; j<5; j++) {
+							
+								System.out.print("" + estadio[i][j] + " | ");
+								
+							}
+							
+						}
+						
+						System.out.println();
+						
+						for(int i = 1; i<numeroCentro; i++) {
+							
+							System.out.print("" + i + " - ");
+							
+							for(int j=1; j<2; j++) {
+								
+								System.out.print("" + centro[i][j] + " | ");
+								
+								
+							}
+							
+							
+						}
+						
+						System.out.println();
+						
+						
+						System.out.println("\nSócio-torcedore(s):");
+						for(int i = 1; i<numeroSocio; i++) {
+							
+							System.out.print("" + i + " - ");
+							
+							for(int j=1; j<9; j++) {
+								
+								System.out.print("" + socioTorcedor[i][j] + " | ");
+								
+							}
+							
+							
+						}
+						
+						System.out.println();
+						
 						
 					}
 					else {
