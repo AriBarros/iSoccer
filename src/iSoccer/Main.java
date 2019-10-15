@@ -380,12 +380,14 @@ public class Main {
 					}
 					else {
 						System.out.println("\nOpção inválida!\n");
+						break;
 					}
 					
 					pessoa[numeroFuncionario][9] = null;
 					
 					
 					numeroFuncionario++;
+					
 					
 					break;
 				
@@ -439,7 +441,6 @@ public class Main {
 					}
 					
 			
-					
 					System.out.println("Informe o estado de pagamento do sócio-torcedor: 1- Adimplente ou 2- Inadimplente");
 					
 	
@@ -782,7 +783,7 @@ public class Main {
 							
 							
 						}
-						else
+						else if(opcaoEstadio == 2)
 						{
 							
 							//1 devido ao id do estádio criado acima
@@ -792,6 +793,11 @@ public class Main {
 							else {
 								System.out.println("Não há disponibilidade de estádio!");
 							}
+							
+						}
+						else {
+							
+							System.out.println("\nOpção Inválida!\n");
 							
 						}
 						
@@ -1054,7 +1060,7 @@ public class Main {
 							
 							for(int i = 1; i<numeroCentro; i++) {
 								
-								System.out.print("" + i + " - Quantidade de dormitórios:");
+								System.out.print("" + i + " - Quantidade de dormitórios: ");
 								for(int j= 1; j<2; j++) {
 									System.out.println("" + centro[i][j]);
 								}
@@ -1099,6 +1105,8 @@ public class Main {
 						}
 						else if(relatorioSocio == 2) {
 							
+							System.out.println("Sócio-torcedores adimplentes");
+							
 							for(int i= 1; i<numeroSocio; i++) {
 								
 								if(socioTorcedor[i][8] == "Adimplente") {
@@ -1117,6 +1125,9 @@ public class Main {
 							
 						}
 						else if(relatorioSocio == 3) {
+							
+							
+							System.out.println("Sócio-torcedores inadimplentes");
 							
 							for(int i= 1; i<numeroSocio; i++) {
 								
@@ -1137,6 +1148,8 @@ public class Main {
 							
 						}
 						else if(relatorioSocio == 4) {
+							
+							System.out.println("Lista de sócio-torcedores com dados individuais");
 							
 							for(int i= 1; i<numeroSocio; i++) {
 								
@@ -1179,6 +1192,8 @@ public class Main {
 								
 							}
 							
+							System.out.println();
+							
 						}
 						
 						System.out.println();
@@ -1197,9 +1212,13 @@ public class Main {
 								
 							}
 							
+							System.out.println();
+							
 						}
 						
 						System.out.println();
+						
+						System.out.println("\nCentro(s) de treinamento(s):");
 						
 						for(int i = 1; i<numeroCentro; i++) {
 							
@@ -1219,6 +1238,7 @@ public class Main {
 						
 						
 						System.out.println("\nSócio-torcedore(s):");
+						
 						for(int i = 1; i<numeroSocio; i++) {
 							
 							System.out.print("" + i + " - ");
