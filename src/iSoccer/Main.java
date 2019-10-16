@@ -1248,7 +1248,7 @@ public class Main {
 								System.out.print("" + socioTorcedor[i][j] + " | ");
 								
 							}
-							
+							System.out.println();
 							
 						}
 						
